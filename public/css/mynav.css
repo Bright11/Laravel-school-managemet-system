@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 18px;
+}
+
+button {
+    border: 0;
+    border-radius: 5%;
+    padding: 3px;
+}
+
+.readmore {
+    background-color: #3575D3;
+    color: white;
+}
+
+.noticeborad {
+    background-color: darkgrey;
+    color: black;
+    font-size: 18px;
+    font-weight: normal;
+    padding: 5px;
+    text-align: center;
+}
+
+.dropdown:hover .dropdown-menu {}
+
+.dropdown-menu {}
+
+.adminssion {
+    background-color: #52B554;
+    color: white;
+    text-align: center;
+    height: 150px;
+    padding: 5px;
+}
+
+.adminssion2 {
+    margin-top: 5px;
+}
+
+.carousel-caption {
+    background-color: #464442;
+    color: white;
+}
+
+.sliderimg {
+    height: 300px !important;
+}
+
+td img {
+    height: 50px;
+}
