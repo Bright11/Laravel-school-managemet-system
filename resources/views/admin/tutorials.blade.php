@@ -38,7 +38,7 @@
                                 <select name="level_id" class="form-control">
                                   <option value="" class="option">Select Course Level</option>
                                   @forelse ($l as $t)
-                                  <option value="{{ $t['lid'] }}" class="option">{{ $t['level'] }}</option>
+                                  <option value="{{ $t['level_id'] }}" class="option">{{ $t['level'] }}</option>
                                   @empty
                                   @endforelse
                                 </select>
@@ -53,6 +53,10 @@
                                       @endforelse
                                     </select>
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Tutorial Picture</label>
+                                        <textarea name="description" cols="30" rows="10" class="form-control"></textarea>
+                                        </div>
 
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Tutorial Picture</label>

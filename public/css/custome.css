@@ -17,7 +17,7 @@
 }
 
 .reame {
-    background-color: blue;
+    background-color: #153D6F !important;
     text-align: center;
 }
 
@@ -30,7 +30,7 @@
     text-decoration: none;
     font-size: 25px;
     color: blue;
-    background-color: blue;
+    background-color: #153D6F !important;
     color: white;
 }
 
@@ -85,4 +85,45 @@ h3 {
     font-weight: 650;
     text-decoration: underline;
     text-shadow: #52B554;
+}
+
+.lecturerimg {
+    height: 250px;
+}
+
+.lecturer h1 {
+    font-size: 20px;
+    font-weight: 650;
+    text-decoration: wavy
+}
+
+.lecturer img:hover {}
+
+.applylink {
+    text-decoration: none;
+    background-color: #153D6F;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.applylink:hover {
+    background-color: #153D6F;
+    color: black;
+}
+
+.tutoralform {
+    box-shadow: -3px 11px 10px -8px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -3px 11px 10px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -3px 11px 10px -8px rgba(0, 0, 0, 0.75);
+    background-color: #153D6F;
+}
+
+.myvideostd {}
+
+.myvidoes {
+    height: 200px;
+    width: 200px;
 }

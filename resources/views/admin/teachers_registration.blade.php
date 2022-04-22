@@ -25,11 +25,11 @@
 
                                     <div class="mb-3">
                                         <label for="exampleInputPassword1" class="form-label">Full name</label>
-                                        <input type="text" class="form-control" name="full_name" placeholder="Full name">
+                                        <input type="text" class="form-control" name="full_name" value="@if(session('name')){{ session('name') }}@endif">
                                       </div>
                                       <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">teacher Email address</label>
-                                        <input type="email" class="form-control" name="teacher_email" placeholder="Email address">
+                                        <input type="email" class="form-control" name="teacher_email" value="@if(session('email')){{ session('email') }}@endif">
                                       </div>
                                       <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">teacher Phone number</label>
@@ -54,20 +54,13 @@
                                         <label for="exampleInputEmail1" class="form-label">Date of birth</label>
                                         <input type="date" class="form-control" name="teacher_dob" placeholder="Date of birth">
                                       </div>
-
-                                      <div class="mb-3">
-                                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input type="password" class="form-control" name="password">
-                                      </div>
                                     <div class="mb-3">
-                                      <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                                      <input type="password" class="form-control" name="confirm_p">
+                                      <label for="exampleInputPassword1" class="form-label">Description</label>
+                                     <textarea name="description" cols="30" rows="10" class="form-control"></textarea>
                                     </div>
+
                                 </div>
-                                <div class="mb-3">
-                                  <label for="exampleInputPassword1" class="form-label">Description</label>
-                                 <textarea name="description" cols="30" rows="10" class="form-control"></textarea>
-                                </div>
+
                                     <div class="mb-3">
                                         <label for="exampleInputPassword1" class="form-label">Profile Picture</label>
                                         <input type="file" class="form-control" name="profil_p">

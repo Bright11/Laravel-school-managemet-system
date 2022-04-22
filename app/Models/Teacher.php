@@ -10,10 +10,10 @@ class Teacher extends Model
     use HasFactory;
     public function User()
     {
-        return $this->belongsTo(User::class,'user_code','user_code');
+        return $this->belongsTo(User::class,'user_id','id');
     }
     public function Teachercourses()
     {
-        return $this->belongsTo(Teachercourses::class,'user_code','user_code');
+        return $this->belongsTo(Teachercourses::class,'user_id','id');
     }
 }

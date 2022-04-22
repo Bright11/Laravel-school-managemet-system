@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Semester extends Model
 {
     use HasFactory;
+    public function Toturials()
+    {
+        return $this->belongsTo(Toturials::class,'semester_id','semesertid');
+    }
 }

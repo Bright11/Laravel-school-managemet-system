@@ -20,8 +20,9 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->default('0');
+            $table->string('position')->default('0');
             $table->string('status')->default('pending');
-            $table->string('user_code')->unique();
+            $table->string('user_code')->unique()->nullable();
             $table->string('reset_p_code')->unique();
             $table->timestamps();
         });

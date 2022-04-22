@@ -17,9 +17,9 @@ class CreateStudentcoursesTable extends Migration
             $table->id();
             $table->string('cours_id');
             $table->integer('user_id');
+            $table->integer('student_id');
             $table->string('semester_id');
             $table->string('level_id');
-            $table->string('student_id');
             $table->timestamps();
         });
     }

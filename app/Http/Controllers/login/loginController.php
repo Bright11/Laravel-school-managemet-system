@@ -11,6 +11,69 @@ use Illuminate\Support\Facades\Session;
 class loginController extends Controller
 {
     //
+    public function registration()
+    {
+        # code...
+
+        return view('admin.registration');
+    }
+    public function view_users()
+    {
+        # code...
+        $users=User::all();
+
+        return view('admin.view_users',['users'=>$users]);
+    }
+
+    public function registerdb(Request $req)
+    {
+
+        # code...
+        $req->validate([
+            'full_name'=>'required',
+            'student_email'=>'required',
+            'email'=>'unique:users',
+            'password'=>'required',
+            'position'=>'required',
+            'confirm_p'=>'required_with:password|same:password|min:5',
+        ]);
+
+        //$data = ["name" => $req->full_name, "email" => $req->student_email,];
+        $code = (time() + rand(1, 10));
+        $user= new User;
+        if($req->position=='admin')
+        {
+            $user->role=$req->position;
+        }
+        $user->name=$req->full_name;
+        $user->email=$req->student_email;
+        $user->password=Hash::make($req->password);
+        $user->user_code=$code;
+        $user->position=$req->position;
+        $user->reset_p_code=$code;
+        $user->save();
+        $checkid=User::where('email',$req->student_email)->first();
+        if($checkid){
+            $ownnerid=$checkid->id;
+            //return $myid;
+        if($req->position=='student')
+        {
+            return redirect('student_registration')->with('name',$req->full_name)->with('email',$req->student_email)->with('ownnerid',$ownnerid);
+        }elseif($req->position=='teacher')
+        {
+            return redirect('teachers_registration')->with('name',$req->full_name)->with('email',$req->student_email)->with('ownnerid',$ownnerid);
+        }elseif($req->position=='staf')
+        {
+            return redirect('staf_registration')->with('name',$req->full_name)->with('email',$req->student_email)->with('ownnerid',$ownnerid);
+        }//staf
+        elseif($req->position=='admin')
+        {
+            return redirect('view_users')->with('status','Success');
+        }
+        return redirect()->back()->with('name',$req->full_name)->with('email',$req->student_email)->with('ownnerid',$ownnerid);
+       // return view('admin.student_registration',['name'=>$req->full_name,'email'=>$req->student_email]);
+    }
+}
 
     public function login()
     {

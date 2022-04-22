@@ -1,0 +1,33 @@
+.myuserform {
+    width: 120px;
+    text-align: center;
+}
+
+.importform {
+    align-items: center;
+}
+
+.importform h6 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.importform-file {
+    background-color: blue !important;
+    margin-bottom: 5px;
+}
+
+.importform-file:hover {
+    background-color: yellowgreen !important;
+}
+
+.importform-submit {
+    background-color: blue !important;
+    color: white !important;
+    font-size: 25px !important;
+    font-weight: bold !important;
+}
+
+.importform-submit:hover {
+    background-color: green !important;
+}

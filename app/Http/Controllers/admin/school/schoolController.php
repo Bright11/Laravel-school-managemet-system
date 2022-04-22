@@ -157,6 +157,7 @@ class schoolController extends Controller
        $tuc->subject=$req->subject;
        $tuc->level_id=$req->level_id;
        $tuc->semester_id=$req->semester_id;
+       $tuc->description=$req->description;
        $file=$req->file('picture');
         $extention = $file->getClientOriginalExtension();
         $filename=time().'.'.$extention;

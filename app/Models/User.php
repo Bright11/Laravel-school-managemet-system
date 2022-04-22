@@ -43,11 +43,11 @@ class User extends Authenticatable
     ];
     public function Teacher()
     {
-        return $this->belongsTo(Teacher::class,'user_code','user_code');
+        return $this->hasOne(Teacher::class,'user_id','id');
     }
     public function Student()
     {
-        return $this->belongsTo(Student::class,'user_code','user_code');
+        return $this->belongsTo(Student::class,'user_id','id');
     }
 
 }

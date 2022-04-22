@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Classrooms;
 use App\Models\Schoolcourses;
+use App\Models\Student;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class adminfController extends Controller
@@ -12,7 +14,10 @@ class adminfController extends Controller
     //
     public function indexadmin()
     {
-        return view('admin.indexadmin');
+        $countteacher=Teacher::count();
+        $studentc=Student::count();
+        return view('admin.indexadmin',['countteacher'=>$countteacher,
+    'studentc'=>$studentc]);
     }
 
     public function viewstudents()
@@ -50,5 +55,10 @@ class adminfController extends Controller
     {
         $courses = Schoolcourses::all();
         return view('admin.view_school_courses',['courses'=>$courses]);
+    }
+    public function staf_registration()
+    {
+        # code...
+        return view('admin.staf_registration');
     }
 }

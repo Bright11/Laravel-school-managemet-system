@@ -34,9 +34,9 @@ public function myprofile()
         return view('student.mycourses',['student'=>$student,'studentcourse'=>$studentcourse]);
     }
 
-public function studentgo_cours($id,$lid)
+public function studentgo_cours($id,$level_id)
 {
-     $tutorial=Toturials::where('course_id',$id)->Where('level_id',$lid)->get();
+     $tutorial=Toturials::where('course_id',$id)->Where('level_id',$level_id)->get();
     //$tutorial=Toturials::with('Level')->where('toturials.course_id',$id)->where('toturials.level_id',$lid)->get();
     return view('student.studentgo_cours',['tutorial'=>$tutorial]);
 }

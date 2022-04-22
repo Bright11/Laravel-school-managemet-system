@@ -15,7 +15,7 @@ class Schoolcourses extends Model
     }
     public function Toturials()
     {
-        return $this->belongsTo(Toturials::class,'cours_id','id');
+        return $this->belongsTo(Toturials::class,'course_id','id');
     }
 
 }

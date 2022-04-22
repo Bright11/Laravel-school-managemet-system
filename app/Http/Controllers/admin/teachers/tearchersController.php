@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use App\Models\Schoolcourses;
 use App\Models\Teachercourses;
 use App\Http\Controllers\Controller;
+use App\Models\Student;
+use App\Models\Studentcourses;
+use App\Models\Toturials;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -20,27 +24,19 @@ class tearchersController extends Controller
             'full_name'=>'required',
             'teacher_email'=>'required',
             'teacher_email'=>'unique:teachers',
-            'email'=>'unique:users',
-            'password'=>'required',
             'teacher_number'=>'required',
             'teacher_number'=>'unique:teachers',
             'confirm_p'=>'required_with:password|same:password|min:5',
         ]);
+        $staff=Session::get('user')['id'];
+        $check=User::where('email',$req->teacher_email)->where('name',$req->full_name)->first();
+        if($check){
+           $teacher_id= $check->id;
 
-        $code = (time() + rand(1, 10));
-      # return $code;
-        $user= new User;
-        $user->name=$req->full_name;
-        $user->email=$req->teacher_email;
-        $user->password=Hash::make($req->password);
-        $user->user_code=$code;
-        $user->reset_p_code=$code;
-        $user->save();
-        if($user){
-            $newuser=User::where('user_code',$user->user_code=$code)->first();
-            $uid= $newuser->id;
+            $code = (time() + rand(1, 10));
             $teacher=new Teacher;
-            $teacher->user_id=$uid;
+            $teacher->user_id=$staff;
+            $teacher->teacher_id=$teacher_id;
             $teacher->full_name=$req->full_name;
             $teacher->teacher_email=$req->teacher_email;
             $teacher->teacher_number=$req->teacher_number;
@@ -56,18 +52,15 @@ class tearchersController extends Controller
             $file->move('teacherp/',$filename);
             $teacher->profil_p=$filename;
             $teacher->save();
-            {
 
             if($teacher){
                 return redirect('view_teachers')->with('status','Success');
             }else{
                 return redirect()->back()->with('status','Not fully completed, contact admin');
             }
-           }
-
-        }else{
-            return redirect()->back()->with('status','Error tring to validate your details, try again');
-        }
+    }else{
+        return redirect()->back()->with('status','Name or email does not exists on registration table');
+    }
     }
 
     public function view_teachers()
@@ -111,5 +104,22 @@ class tearchersController extends Controller
         $teachinfon=Teacher::find($id);
         $teachc=Teachercourses::where('teacher_id', $id)->get();
         return view('admin.view_teachers_info',['teachinfo'=>$teachinfo,'teachc'=>$teachc,'teachinfon'=>$teachinfon]);
+    }
+
+    public function view_mytutorial()
+    {
+        # code...
+        $loginid=Session::get('user')['id'];
+
+      /*
+         $mytstudent=DB::table('studentcourses')
+       ->join('students','students.id','=','studentcourses.student_id')
+       ->join('schoolcourses','schoolcourses.id','=','studentcourses.cours_id')
+       ->join('toturials','toturials.teacher_id','=','studentcourses.user_id')
+       ->where('studentcourses.user_id','=',$loginid)->get();
+      */
+     // $mytutorial=Toturials::where('teacher_id',$loginid)->get();
+     $mytutorial=Schoolcourses::where('user_id',$loginid)->get();
+        return view('admin.view_mytutorial',['mytutorial'=>$mytutorial]);
     }
 }

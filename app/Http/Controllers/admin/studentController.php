@@ -18,59 +18,47 @@ class studentController extends Controller
     //
     public function addstudenttodb(Request $req)
     {
-
         $req->validate([
             'full_name'=>'required',
             'student_email'=>'required',
             'student_email'=>'unique:students',
-            'email'=>'unique:users',
-            'password'=>'required',
             'student_number'=>'required',
             'student_number'=>'unique:students',
-            'confirm_p'=>'required_with:password|same:password|min:5',
         ]);
-        $code = (time() + rand(1, 10));
-        $user= new User;
-        $user->name=$req->full_name;
-        $user->email=$req->student_email;
-        $user->password=Hash::make($req->password);
-        $user->user_code=$code;
-        $user->reset_p_code=$code;
-        $user->save();
+        $staff=Session::get('user')['id'];
+        $check=User::where('email',$req->student_email)->where('name',$req->full_name)->first();
 
-        if($user){
-            $student=new Student;
-
-            $newsee=User::where('user_code',$user->user_code=$code)->first();
-            $uid= $newsee->id;
-            {
+       if($check){
+         $student_id=$check->id;
+         $user_code=$check->user_code;
          $student=new Student;
-         $student->user_id=$uid;
-        $student->full_name=$req->full_name;
-        $student->student_email=$req->student_email;
-        $student->student_number=$req->student_number;
-        $student->qualification=$req->qualification;
-        $student->country=$req->country;
-        $student->address=$req->address;
-        $student->student_dob=$req->student_dob;
-       $student->user_code=$code;
-        $file=$req->file('profil_p');
-        $extention = $file->getClientOriginalExtension();
-        $filename=time().'.'.$extention;
-        $file->move('studentp/',$filename);
-        $student->profil_p=$filename;
-        $student->save();
-                if($student){
-                    return redirect('viewstudents')->with('status','Success');
-                }else{
-                    return redirect()->back()->with('status','Not fully completed, contact admin,it seems like some info has been taken already');
-                }
-            }
+         $student->full_name=$req->full_name;
+         $student->student_email=$req->student_email;
+         $student->student_number=$req->student_number;
+         $student->qualification=$req->qualification;
+         $student->country=$req->country;
+         $student->address=$req->address;
+         $student->student_id=$student_id;
+         $student->user_code=$user_code;
+         $student->user_id=$staff;
+         $student->student_dob=$req->student_dob;
+       //  $student->user_code=$code;
+         $file=$req->file('profil_p');
+         $extention = $file->getClientOriginalExtension();
+         $filename=time().'.'.$extention;
+         $file->move('studentp/',$filename);
+         $student->profil_p=$filename;
+         $student->save();
+                 if($student){
+                     return redirect('viewstudents')->with('status','Success');
+                 }else{
+                     return redirect()->back()>with('name',$req->full_name)->with('email',$req->student_email)->with('status','Not fund, you can do it manually');
+                 }
 
+       }else{
+        return redirect()->back()->with('name',$req->full_name)->with('email',$req->student_email);
+       }
 
-        }else{
-            return redirect()->back()->with('status','Error tring to validate your details, try again');
-        }
     }
 
     public function viewstudents()

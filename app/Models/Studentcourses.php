@@ -22,6 +22,6 @@ class Studentcourses extends Model
     }
     public function Level()
     {
-        return $this->belongsTo(Level::class,'level_id','lid');
+        return $this->belongsTo(Level::class,'level_id','level_id');
     }
 }

@@ -30,11 +30,10 @@
                     <th scope="row">1</th>
                     <td>{{ $stc->Schoolcourses->cours_name }}</td>
                     <td>{{ $stc->Level->level }}</td>
-                    <td><a class="btn btn-success" href="studentgo_cours/{{ $stc->Schoolcourses->id }}/level/{{ $stc->Level->lid }}">Go to Cours</a></td></td>
+                    <td><a class="btn btn-success" href="studentgo_cours/{{ $stc->Schoolcourses->id }}/level/{{ $stc->Level->level_id }}">Go to Cours</a></td></td>
                     <td><a class="btn btn-danger" href="{{ $stc->id }}">Delete</a></td></td>
                   </tr>
                   @empty
-
                 @endforelse
               </tbody>
             </table>

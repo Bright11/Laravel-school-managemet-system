@@ -30,7 +30,7 @@ class hostelController extends Controller
         $file->move('hostel/',$filename);
         $hostel->room_image=$filename;
         $hostel->save();
-        return redirect()->back();
+        return redirect('view_admin_hostel')->with('status','Success');
     }
 
     public function view_admin_hostel()

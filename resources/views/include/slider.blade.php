@@ -16,7 +16,7 @@
                     <div class="carousel-caption d-none d-md-block">
                       <h5>{{ $newslid['cours_name'] }}</h5>
                       <p>{{ Str::limit($newslid->cours_description,50,$end="...") }}</p>
-                      <button class="">View Course</button>
+                      <button class="mybutton">View Course</button>
                     </div>
                 </a>
                   </div>

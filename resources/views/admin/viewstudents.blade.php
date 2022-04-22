@@ -13,6 +13,9 @@
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="{{ route('student_registration') }}">Register Student</a></li>
                 <li class="breadcrumb-item active">Add Student</li>
+                <div class="importform">
+                @include('admin.excelusers.student_registerexecl')
+                </div>
             </ol>
             <div class="card mb-4">
                 <div class="card-body">

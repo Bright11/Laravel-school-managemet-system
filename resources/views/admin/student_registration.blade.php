@@ -11,6 +11,8 @@
         <main>
             <div class="container-fluid px-4">
                 <h1 class="mt-4">Student Registration</h1>
+
+
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                     <li class="breadcrumb-item active">Static Navigation</li>
@@ -20,19 +22,23 @@
         </div>
         @endif
                 </ol>
+                {{ session('email') }} name<br>
+                {{ session('name') }} emaul<br>
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
+
+
                                 <form action="{{ route('addstudenttodb') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">
                                         <label for="exampleInputPassword1" class="form-label">Full name</label>
-                                        <input type="text" class="form-control" name="full_name" placeholder="Full name">
+                                        <input type="text" class="form-control" name="full_name" value="@if(session('name')){{ session('name') }}@endif" >
                                       </div>
                                       <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">student Email address</label>
-                                        <input type="email" class="form-control" name="student_email" placeholder="Email address">
+                                        <input type="email" class="form-control" name="student_email" value="@if(session('email')){{ session('email') }}@endif{{ old('student_email')}}">
                                       </div>
                                       <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">student Phone number</label>
@@ -58,14 +64,6 @@
                                         <input type="date" class="form-control" name="student_dob" placeholder="Date of birth">
                                       </div>
 
-                                      <div class="mb-3">
-                                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input type="password" class="form-control" name="password">
-                                      </div>
-                                    <div class="mb-3">
-                                      <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                                      <input type="password" class="form-control" name="confirm_p">
-                                    </div>
                                     <div class="mb-3">
                                         <label for="exampleInputPassword1" class="form-label">Profile Picture</label>
                                         <input type="file" class="form-control" name="profil_p">

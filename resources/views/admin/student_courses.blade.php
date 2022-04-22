@@ -33,7 +33,7 @@
                                 <select name="level_id" class="form-control">
                                   <option value="" class="option">Select level</option>
                                   @forelse ($level as $l)
-                                  <option value="{{ $l['lid'] }}" class="option">{{ $l['level'] }}</option>
+                                  <option value="{{ $l['level_id'] }}" class="option">{{ $l['level'] }}</option>
                                   @empty
                                   @endforelse
                                 </select>

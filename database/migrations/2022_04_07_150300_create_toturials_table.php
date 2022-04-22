@@ -23,6 +23,7 @@ class CreateToturialsTable extends Migration
             $table->string('picture');
             $table->string('video')->nullable();
             $table->string('notes')->nullable();
+            $table->longText('description');
             $table->timestamps();
         });
     }

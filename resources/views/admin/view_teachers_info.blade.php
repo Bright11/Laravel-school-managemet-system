@@ -16,6 +16,7 @@
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="{{ route('teachers_registration') }}">Add Teacher</a></li>
                 <li class="breadcrumb-item active">Add Teacher</li>
+
             </ol>
             <div class="card mb-4">
                 <div class="card-body">

@@ -8,7 +8,9 @@
            </a>
        </div>
        @empty
-
+       <div class="col-md-3 schoolc">
+       Comming soon
+    </div>
        @endforelse
 
 

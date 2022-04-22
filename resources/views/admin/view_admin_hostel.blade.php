@@ -11,7 +11,7 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">Hostel table</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="{{ route('student_hostel_register') }}">Add Teacher</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('student_hostel_register') }}">Add Hostel</a></li>
                 <li class="breadcrumb-item active">Add Hostel</li>
             </ol>
             <div class="card mb-4">
