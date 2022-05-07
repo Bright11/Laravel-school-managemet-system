@@ -15,9 +15,18 @@
                 <hr>
                 <h2>Price: {{ $onlinedetail['Video_price'] }}</h2>
                 <hr>
+                <input type="hidden" readonly id="inputcopy" value="{{  URL::current() }}">
+                <button class="readpdflink" onclick="gettextcopied()" id="copybutton">Share</button>
+
                 <hr>
                 <div class="reame mb-5">
-                    <a href="/successpay/{{ $onlinedetail['buyingcode'] }}/id/{{ $onlinedetail['id'] }}/price/{{ $onlinedetail['Video_price']}}" class="readpdflink" target="_blank" rel="noopener noreferrer">Book Now</a>
+
+                 @if ( !empty($checkpay->owner_id)? $checkpay->owner_id: '')
+                 <a href="/startlearningonline/{{ $onlinedetail['id'] }}/ownner_id/{{ $onlinedetail['user_id'] }}" class="readpdflink">Start Learning</a>
+                 @else
+
+                 <a href="/onlinetutorialpayment/{{ $onlinedetail['id'] }}" class="readpdflink">Book Now</a>
+                 @endif
                 </div>
                 </div>
         </div>

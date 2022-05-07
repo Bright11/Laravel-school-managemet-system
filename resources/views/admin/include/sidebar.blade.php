@@ -15,6 +15,9 @@
             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link" href="{{ route('viewstudents') }}">View Student</a>
+                    <a class="nav-link" href="{{ route('student_admission') }}">View Addmission</a>
+                    <a class="nav-link" href="{{ route('view_new_student') }}">New Student</a>
+
                 </nav>
             </div>
 
@@ -38,6 +41,8 @@
             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                 <a class="nav-link" href="{{ route('view_school_courses') }}">View Course</a>
                 <a class="nav-link" href="{{ route('view_teachers') }}">Teachers</a>
+                <a class="nav-link" href="{{ route('view_new_teachers') }}">New Teachers</a>
+
                 <a class="nav-link" href="{{ route('view_classroom') }}">View Class Rooms</a>
 
                 <a class="nav-link" href="{{ route('view_semester') }}">Semester</a>
@@ -54,33 +59,20 @@
             <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                 <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link" href="{{ route('view_users') }}">Users</a>
+                    <a class="nav-link" href="{{ route('view_sponsors') }}">Sponsors</a>
+                    <a class="nav-link" href="{{ route('view_annoucement') }}">Annoucement</a>
                 </nav>
             </div>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                <!--Error-->
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                        <nav class="sb-sidenav-menu-nested nav">
 
-                        </nav>
-                    </div>
-                </nav>
-            </div>
             <div class="sb-sidenav-menu-heading"></div>
-            <a class="nav-link" href="{{ route('indexadmin') }}">
-                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
 
-            </a>
-            <a class="nav-link" href="#">
-                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-
-            </a>
         </div>
     </div>
     <div class="sb-sidenav-footer">
         <div class="small">Logged in as:</div>
-       School Managment System
+       @if (Session::has('user'))
+       <div class="small" style="color: white;">{{ session('user.name') }}</div>
+       @endif
     </div>
 </nav>
 <style>

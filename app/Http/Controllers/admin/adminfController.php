@@ -30,9 +30,10 @@ class adminfController extends Controller
         return view('admin.student_registration');
     }
 
-    public function teachers_registration()
+    public function teachers_edit($id)
     {
-        return view('admin.teachers_registration');
+        $editteacher=Teacher::find($id);
+        return view('admin.tearchersprofile.teachers_edit',['editteacher'=>$editteacher]);
     }
 
     public function school_courses()

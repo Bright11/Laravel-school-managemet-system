@@ -21,6 +21,15 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user_code',
+        'reset_p_code',
+        'position',
+        'qualification',
+        'country',
+        'address',
+        'dob',
+        'description',
+        'number'
     ];
 
     /**
@@ -43,11 +52,12 @@ class User extends Authenticatable
     ];
     public function Teacher()
     {
-        return $this->hasOne(Teacher::class,'user_id','id');
+        return $this->hasMany(Teacher::class,'teacher_id','id');
     }
     public function Student()
     {
-        return $this->belongsTo(Student::class,'user_id','id');
+        //return $this->hasMany(Student::class,'student_id','id');
+        return $this->hasMany(Student::class,'student_id','id');
     }
 
 }

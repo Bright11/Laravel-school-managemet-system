@@ -10,6 +10,11 @@ class Semester extends Model
     use HasFactory;
     public function Toturials()
     {
-        return $this->belongsTo(Toturials::class,'semester_id','semesertid');
+        return $this->hasMany(Toturials::class,'semester_id','semesertid');
+    }
+    public function Studentcourses()
+    {
+        # code...
+        return $this->hasMany(Studentcourses::class,'semester_id','semesertid');
     }
 }

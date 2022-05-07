@@ -14,9 +14,9 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->integer('student_id');
+            $table->increments('id');
+            $table->unsignedInteger('admin_id');
+            $table->unsignedInteger('student_id');
             $table->string('full_name');
             $table->string('student_email');
             $table->string('student_number');
@@ -24,9 +24,12 @@ class CreateStudentsTable extends Migration
             $table->string('country');
             $table->string('address');
             $table->string('student_dob');
-            $table->string('profil_p');
+            $table->string('profil_p')->nullable();
             $table->string('user_code')->unique();
             $table->timestamps();
+            $table->foreign('admin_id')->references('id')->on('users');
+            $table->foreign('student_id')->references('id')
+            ->on('users')->onDelete('cascade');
         });
     }
 

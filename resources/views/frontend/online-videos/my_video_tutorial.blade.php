@@ -25,7 +25,7 @@
                               @forelse ($myonlinevideos as $v)
                               <tr>
                               <th scope="row">1</th>
-                              <td>{{ $v['video_name'] }}</td>
+                              <td>{{ $v['Video_name'] }}</td>
                               <td>{{ $v['Video_price'] }}</td>
                               <td class="myvideostd"><video controls class="myvidoes"  src="{{ asset('onlinevideo/'.$v['Video']) }}"></video></td>
                               <td ><img style="height: 200PX; width: 200px;" src="{{ asset('onlineimg/'.$v->Video_img) }}" alt=""></td>

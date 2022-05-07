@@ -14,12 +14,13 @@ class CreateStudentcoursesTable extends Migration
     public function up()
     {
         Schema::create('studentcourses', function (Blueprint $table) {
-            $table->id();
-            $table->string('cours_id');
-            $table->integer('user_id');
+            $table->increments('id');
+            $table->integer('course_id');
+            $table->integer('admin_id');
             $table->integer('student_id');
-            $table->string('semester_id');
-            $table->string('level_id');
+            $table->integer('semester_id');
+            $table->integer('level_id');
+
             $table->timestamps();
         });
     }

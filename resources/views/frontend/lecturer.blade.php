@@ -7,7 +7,11 @@
     <div class="row">
         @forelse ($lecturer as $t)
         <div class="col-md-3">
+            @if ($t->profil_p=='')
+            <img src="{{ asset('advtarimage/avatar-3637425__340.webp') }}" alt="" class="lecturerimg img-fluid">
+            @else
             <img src="{{ asset('teacherp/'.$t->profil_p) }}" alt="" class="lecturerimg img-fluid">
+            @endif
             <h2>{{ $t['full_name'] }}</h2>
         </div>
         @empty

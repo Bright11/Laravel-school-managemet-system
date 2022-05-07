@@ -9,10 +9,10 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Teachers table</h1>
+            <h1 class="mt-4">Class Room table</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="{{ route('classrooms') }}">Add Class Room</a></li>
-                <li class="breadcrumb-item active">Add Teacher</li>
+                <li class="breadcrumb-item active">Add Class</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-body">

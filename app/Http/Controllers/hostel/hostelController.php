@@ -19,7 +19,7 @@ class hostelController extends Controller
     {
         $hostel=new Hostel;
         $user=Session::get('user')['id'];
-        $hostel->user_id=$user;
+        $hostel->admin_id=$user;
         $hostel->location=$req->location;
         $hostel->room_number=$req->room_number;
         $hostel->description=$req->description;

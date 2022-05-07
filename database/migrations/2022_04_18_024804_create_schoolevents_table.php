@@ -14,13 +14,15 @@ class CreateSchooleventsTable extends Migration
     public function up()
     {
         Schema::create('schoolevents', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->unsignedInteger('admin_id');
             $table->string('event_name');
             $table->string('event_location');
             $table->string('event_img')->nullable();
             $table->longText('event_description')->nullable();
             $table->string('event_date');
             $table->string('event_time');
+            $table->foreign('admin_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

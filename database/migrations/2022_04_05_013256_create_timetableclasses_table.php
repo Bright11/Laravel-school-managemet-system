@@ -15,16 +15,21 @@ class CreateTimetableclassesTable extends Migration
     {
         Schema::create('timetableclasses', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->string('cours_id');
+            $table->unsignedInteger('admin_id');
+            $table->unsignedInteger('cours_id');
             $table->string('locaton');
             $table->string('cours_date');
             $table->string('cours_time');
             $table->string('cours_clossing_time');
-            $table->string('teacher_id');
+            $table->unsignedInteger('teacher_id');
             $table->string('semester');
             $table->string('level');
             $table->timestamps();
+            $table->foreign('admin_id')->references('id')->on('users');
+            $table->foreign('cours_id')->references('id')->on('schoolcourses')
+            ->onDelete('cascade');
+            $table->foreign('teacher_id')->references('id')->on('teachers')
+            ->onDelete('cascade');
         });
     }
 

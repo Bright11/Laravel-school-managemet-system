@@ -14,8 +14,6 @@
               Categories
             </a>
             <ul class="dropdown-menu dropdownbtn admindropdownul"style="width: 100%;" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{{ route('myprofile') }}">Student</a></li>
-
                 @include('include.schoolcourses')
             </ul>
           </li>
@@ -24,8 +22,7 @@
               Admission
             </a>
             <ul class="dropdown-menu dropdownbtn admissiondropdownul" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{{ route('myprofile') }}">Student</a></li>
-                <li><a class="dropdown-item" href="{{ route('myprofile') }}">Student</a></li>
+                <li><a class="dropdown-item" href="{{ route('admisionform') }}">Admission</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown admissiondropdownli">
@@ -53,6 +50,7 @@
             <ul class="dropdown-menu dropdownbtn admissiondropdownul" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{{ route('addonline_course') }}">Upload Your course</a></li>
                 <li><a class="dropdown-item" href="{{ route('my_video_tutorial') }}">My Videos</a></li>
+                <li><a class="dropdown-item" href="{{ route('my_paid_video_tutorial') }}">My Paid Videos</a></li>
             </ul>
           </li>
 
@@ -62,7 +60,7 @@
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn nav_form_submit btn-outline-success" type="submit">Search</button>
         </form>
       </div>
     </div>

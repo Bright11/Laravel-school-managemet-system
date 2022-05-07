@@ -14,7 +14,7 @@
                 @include('admin.include.merros')
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Static Navigation</li>
+                    <li class="breadcrumb-item active">Staf Navigation</li>
                 </ol>
                 <div class="card mb-4">
                     <div class="card-body">

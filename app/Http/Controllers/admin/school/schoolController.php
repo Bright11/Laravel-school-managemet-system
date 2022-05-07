@@ -23,8 +23,9 @@ class schoolController extends Controller
         ]);
         $schoolcours=new Schoolcourses;
         $user=Session::get('user')['id'];
-        $schoolcours->user_id=$user;
+        $schoolcours->admin_id=$user;
         $schoolcours->cours_name=$req->cours_name;
+        $schoolcours->price=$req->price;
         $schoolcours->cours_description=$req->cours_description;
         $file=$req->file('cours_img');
         $extention = $file->getClientOriginalExtension();
@@ -55,7 +56,7 @@ class schoolController extends Controller
                 return redirect('view_semester')->with('status','Semester is only 3 which is completed.');
             }else{
                 $user=Session::get('user')['id'];
-                $semester->user_id=$user;
+                $semester->admin_id=$user;
                 $semester->semester=$req->semester;
                 $semester->save();
                 return redirect('view_semester')->with('status','Success');
@@ -75,7 +76,7 @@ class schoolController extends Controller
     {
         $classroom=new Classrooms;
         $user=Session::get('user')['id'];
-        $classroom->user_id=$user;
+        $classroom->admin_id=$user;
         $classroom->room_name=$req->room_name;
         $classroom->room_location=$req->room_location;
         $classroom->room_capacity=$req->room_capacity;
@@ -113,7 +114,7 @@ class schoolController extends Controller
             return redirect('view_level')->with('status','You cannot add more than 3 Levels');
         }else{
             $user=Session::get('user')['id'];
-            $level->user_id=$user;
+            $level->admin_id=$user;
             $level->level=$req->level;
             $level->save();
             return redirect('view_level');
@@ -132,7 +133,7 @@ class schoolController extends Controller
         $course=Schoolcourses::all();
         $l=Level::all();
         $sm=Semester::all();
-        return view('admin.tutorials',['sm'=>$sm,'course'=>$course,'l'=>$l]);
+        return view('admin.tearchersprofile.tutorials',['sm'=>$sm,'course'=>$course,'l'=>$l]);
     }
 
 

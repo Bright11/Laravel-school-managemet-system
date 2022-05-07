@@ -3,6 +3,7 @@
 @section('fbody')
 <div class="container mt-5">
     <div class="row text-center">
+       <p>{{ !empty($messeg) ? $messeg: '' }}</p>
 
         <div class="col-md-6 hostview mb-5">
             <img src="{{ asset('hostel/'.$hostel['room_image']) }}" class="img-fluid" alt="">
@@ -19,7 +20,12 @@
                 <hr>
                 <h4>Period of {{ $hostel['year'] }}</h4><hr>
                 <div class="reame mb-5">
-                    <a href="" class="readpdflink" target="_blank" rel="noopener noreferrer">Book Now</a>
+                    @if ($hostel->status=='Already booked.')
+                    <a href="#" class="readpdflink" >{{ $hostel['status'] }}</a>
+                    @else
+                    <a href="/hostel_payment/{{ $hostel->id }}" class="readpdflink" >Book Now</a>
+                    @endif
+
                 </div>
                 </div>
         </div>

@@ -12,10 +12,10 @@
             <img src="{{ asset('onlineimg/'.$b['Video_img']) }}" class="img-fluid" alt="">
             <div class="hostels">
             <h1>{{ $b->Video_name }}</h1>
-            <h3>Price::${{ $b->Video_price }}</h3>
+            <h3>Price::${{number_format($b->Video_price) }}</h3>
             <p>{{ Str::limit($b->Video_description,50,$end="...") }}</p>
           <div class="hostelview">
-            <a href="/view_onlinecours/{{ $b->id }}"title="Click to Buy Now">Pre View</a>
+            <a href="/view_onlinecours/{{ $b->id }}/ownner_id/{{ $b->user_id }}"title="Click to Buy Now">Pre View</a>
           </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ class Toturials extends Model
     }
     public function Level()
     {
-        return $this->belongsTo(Level::class,'level_id','lid');
+        return $this->belongsTo(Level::class,'level_id','id');
     }
     public function Semester()
     {

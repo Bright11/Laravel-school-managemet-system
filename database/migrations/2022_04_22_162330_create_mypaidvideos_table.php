@@ -14,13 +14,21 @@ class CreateMypaidvideosTable extends Migration
     public function up()
     {
         Schema::create('mypaidvideos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            //$table->increments('id');
+            $table->string('Video_name');
+            $table->unsignedInteger("owner_id");
+            $table->unsignedInteger("video_id");
             $table->integer("user_id");
-            $table->string("owner_id");
-            $table->integer("video_id");
+            $table->string('PayerID')->nullable();
+            $table->string('Video_img');
             $table->string("video");
             $table->string("paid_amaunt");
+            $table->string('status');
             $table->timestamps();
+            $table->foreign('owner_id')->references('id')->on('users')
+            ->onDelete('cascade');
+            $table->foreign('video_id')->references('id')->on('onlinecours');
         });
     }
 

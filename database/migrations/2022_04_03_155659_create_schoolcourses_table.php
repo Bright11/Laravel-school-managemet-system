@@ -15,11 +15,13 @@ class CreateSchoolcoursesTable extends Migration
     public function up()
     {
         Schema::create('schoolcourses', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('cours_name');
-            $table->integer('user_id');
+            $table->unsignedInteger('admin_id');
             $table->string('cours_img');
             $table->longText('cours_description');
+            $table->integer('price');
+            $table->foreign('admin_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

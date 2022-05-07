@@ -11,7 +11,7 @@
         <div class="container-fluid px-4">
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                <li class="breadcrumb-item active">Add School Courses</li>
+                <li class="breadcrumb-item active"></li>
             </ol>
 
             <div class="card mb-4">
@@ -21,7 +21,7 @@
                             @csrf
                             <div class="mb-3">
 
-                              <label for="exampleInputEmail1" class="form-label">Course Name</label>
+                              <label for="exampleInputEmail1" class="form-label">Semester Name</label>
                               <input type="text" class="form-control" name="semester" aria-describedby="emailHelp" placeholder="Semester">
                               </div>
 

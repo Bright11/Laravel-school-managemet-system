@@ -21,6 +21,7 @@ class loginController extends Controller
     {
         # code...
         $users=User::all();
+        //dd($users);
 
         return view('admin.view_users',['users'=>$users]);
     }
@@ -82,6 +83,10 @@ class loginController extends Controller
 
     public function logintodb(Request $req)
     {
+        $checkaccount=User::where(['email'=>$req->email])->where('status','pending')->first();
+        if($checkaccount){
+            return redirect()->back()->with('status','Account has been suspended, pleace contact school admin');
+        }else{
         $user=User::where(['email'=>$req->email])->first();
         //$role=User::where(['email'=>$req->email,'role','admin' ])->exists();
 
@@ -98,13 +103,13 @@ class loginController extends Controller
                  $req->session()->put('user',$user);
                  return redirect('/')->with('status','you have successfully login');
              }
-            }else{
-                //admin
-               // return 'admin';
-               $req->session()->put('user',$user);
-               return redirect('indexadmin')->with('status','you have successfully login');
-            }
+    }else{
+
+       $req->session()->put('user',$user);
+      return redirect('indexadmin')->with('status','you have successfully login');
     }
+}
+}
     public function logout()
     {
         Session::forget('user');

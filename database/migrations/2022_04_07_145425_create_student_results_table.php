@@ -14,16 +14,23 @@ class CreateStudentResultsTable extends Migration
     public function up()
     {
         Schema::create('student_results', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('course');
             $table->string('subject');
-            $table->string('student_id');
-            $table->string('user_code');
-            $table->string('user_id');
-            $table->string('teacer_id');
+            $table->unsignedInteger('student_id');
+            $table->unsignedInteger('user_code');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('teacer_id');
             $table->string('student_scores');
             $table->longText('teacher_description');
             $table->timestamps();
+            $table->foreign('student_id')->references('id')->on('students')
+            ->onDelete('cascade');
+            $table->foreign('teacer_id')->references('id')->on('teachers');
+            $table->foreign('user_code')->references('id')->on('users')
+            ->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')
+            ->onDelete('cascade');
         });
     }
 

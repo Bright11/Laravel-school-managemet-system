@@ -14,16 +14,17 @@ class CreateHostelsTable extends Migration
     public function up()
     {
         Schema::create('hostels', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
+            $table->increments('id');
+            $table->unsignedInteger('admin_id');
             $table->string('location');
             $table->string('room_number');
             $table->string('room_image');
-            $table->string('status')->default('yes');
+            $table->string('status')->default('pending');
             $table->string('year')->default('1 year');
             $table->longText('description')->default('Quality appartment');
             $table->integer('price');
             $table->timestamps();
+            $table->foreign('admin_id')->references('id')->on('users');
         });
     }
 

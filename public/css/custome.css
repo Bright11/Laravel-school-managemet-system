@@ -127,3 +127,98 @@ h3 {
     height: 200px;
     width: 200px;
 }
+
+.admisionform {
+    box-shadow: -3px 11px 10px -8px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -3px 11px 10px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -3px 11px 10px -8px rgba(0, 0, 0, 0.75);
+    text-align: center;
+    margin-top: 35px;
+}
+
+.admisionform input {
+    border-color: #153D6F;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-width: 5px;
+    color: black;
+    font-size: 25px;
+}
+
+.admisionform input:focus {
+    border-color: #153D6F;
+    box-shadow: none;
+}
+
+.admissionformselete:focus {
+    border-color: #153D6F;
+    box-shadow: none;
+}
+
+.admissionformstextarea:focus {
+    border-color: #153D6F;
+    box-shadow: none;
+}
+
+.admissionformselete {
+    border-color: #153D6F;
+    margin-top: 5px;
+    border-width: 5px;
+    margin-bottom: 5px;
+    border-width: 5px;
+}
+
+.admissionformstextarea {
+    border-color: #153D6F;
+    margin-top: 5px;
+    border-width: 5px;
+    border-width: 5px;
+}
+
+.admisionform label {
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #153D6F;
+    width: 100%;
+    color: white;
+}
+
+.admission_submit {
+    background-color: #153D6F;
+    margin-top: 10px;
+    color: white !important;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.announcelink a {
+    text-decoration: none;
+}
+
+.myfooters,
+.myfooter {
+    background-color: black;
+    color: white;
+}
+
+.evenet a {
+    text-decoration: none;
+    color: black;
+}
+
+.evenet a:hover {
+    color: red;
+    font-size: 20px;
+}
+
+.nav_form_submit {
+    background-color: #153D6F !important;
+    color: white !important;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.nav_form_submit:hover {
+    background-color: #52B554 !important;
+}

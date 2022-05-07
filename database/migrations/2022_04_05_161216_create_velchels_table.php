@@ -14,13 +14,14 @@ class CreateVelchelsTable extends Migration
     public function up()
     {
         Schema::create('velchels', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
+            $table->increments('id');
+            $table->unsignedInteger('admin_id');
             $table->string('car_number');
             $table->string('car_image');
             $table->string('purchest_date');
             $table->string('purchest_amount');
             $table->timestamps();
+            $table->foreign('admin_id')->references('id')->on('users');
         });
     }
 

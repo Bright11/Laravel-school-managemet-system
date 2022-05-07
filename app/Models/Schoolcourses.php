@@ -11,11 +11,11 @@ class Schoolcourses extends Model
 
     public function Studentcourses()
     {
-        return $this->belongsTo(Studentcourses::class,'cours_id','id');
+        return $this->hasMany(Studentcourses::class,'course_id','id');
     }
     public function Toturials()
     {
-        return $this->belongsTo(Toturials::class,'course_id','id');
+        return $this->hasMany(Toturials::class,'course_id','id');
     }
 
 }

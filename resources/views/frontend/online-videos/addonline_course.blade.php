@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Tutorial pdf Optional</label>
-                                            <input type="file" name="notes" class="form-control" >
+                                            <input type="hidden" name="notes" class="form-control" >
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1" class="form-label">Tutorial price</label>

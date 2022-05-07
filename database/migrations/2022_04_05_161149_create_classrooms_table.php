@@ -14,14 +14,16 @@ class CreateClassroomsTable extends Migration
     public function up()
     {
         Schema::create('classrooms', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('room_name');
-            $table->integer('user_id');
+            $table->unsignedInteger('admin_id');
             $table->string('room_location');
             $table->string('room_img');
             $table->integer('room_capacity');
             $table->longText('room_description')->nullable();
             $table->timestamps();
+            $table->foreign('admin_id')->references('id')->on('users');
+
         });
     }
 

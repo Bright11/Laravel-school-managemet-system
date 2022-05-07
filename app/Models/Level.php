@@ -10,10 +10,10 @@ class Level extends Model
     use HasFactory;
     public function Studentcourses()
     {
-        return $this->belongsTo(Studentcourses::class,'level_id','level_id');
+        return $this->hasMany(Studentcourses::class,'level_id','id');
     }
     public function Toturials()
     {
-        return $this->belongsTo(Toturials::class,'level_id','level_id');
+        return $this->hasMany(Toturials::class,'level_id','level_id');
     }
 }
